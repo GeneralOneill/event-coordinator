@@ -46,6 +46,9 @@ class Entertainment(ndb.Model):
 portillos =Food(name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654")
 giordanos =Food(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611")
 
+# portillos.put()
+# giordanos.put()
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
