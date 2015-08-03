@@ -17,25 +17,44 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.ext import ndb
+
+
 
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class Food(self, location):
-    self.location = location
-    
+#class Food(self, location):
+#    self.location = location
+class Food(ndb.Model):
+    name = ndb.StringProperty(required = True)
+    location = ndb.StringProperty(required = True)
+
+class Sports(ndb.Model):
+    name = ndb.StringProperty(required = True)
+    location = ndb.StringProperty(required = True)
+
+class Recreation(ndb.Model):
+    name = ndb.StringProperty(required = True)
+    location = ndb.StringProperty(required = True)
+
+class Entertainment(ndb.Model):
+    name = ndb.StringProperty(required = True)
+    location = ndb.StringProperty(required = True)
+#If this code doesn't work, delete it
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
         self.response.out.write(template.render())
-        self.response.out.write('MainHandler')
+        self.response.out.write('Click here to get your results!')
 
 class SelectionHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/selections.html')
         self.response.out.write(template.render())
-        self.response.out.write('SelectionHandler')
+        self.response.out.write('Here are your results!')
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
