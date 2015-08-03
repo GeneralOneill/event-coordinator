@@ -21,6 +21,10 @@ import os
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+class Food(self, location):
+    self.location = location
+    
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
