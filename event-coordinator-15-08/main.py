@@ -64,6 +64,9 @@ class SelectionHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(template_vars))
         # self.response.out.write('Here are your results!')
 
+# class ResultsHandler(webapp2.RequestHandler):
+#     def get(self):
+
 
 
 app = webapp2.WSGIApplication([
