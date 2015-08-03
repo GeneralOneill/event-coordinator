@@ -28,30 +28,7 @@ class Place(ndb.Model):
     location = ndb.StringProperty(required = True)
     value = ndb.StringProperty(required = True)
     category = ndb.StringProperty()
-# class Food(ndb.Model):
-#     name = ndb.StringProperty(required = True)
-#     location = ndb.StringProperty(required = True)
-#     value = ndb.IntergerPropert(required = True)
-#
-# class Sports(ndb.Model):
-#     name = ndb.StringProperty(required = True)
-#     location = ndb.StringProperty(required = True)
-#     value = ndb.IntergerPropert(required = True)
-#
-# class Recreation(ndb.Model):
-#     name = ndb.StringProperty(required = True)
-#     location = ndb.StringProperty(required = True)
-#     value = ndb.IntergerPropert(required = True)
-#
-# class Entertainment(ndb.Model):
-#     name = ndb.StringProperty(required = True)
-#     location = ndb.StringProperty(required = True)
-#     value = ndb.IntergerPropert(required = True)
 
-# portillos = Place(category = "Food", name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654", value = '4')
-# giordanos = Place(category = "Food", name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611", value = '2')
-# portillos.put()
-# giordanos.put()
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
@@ -62,23 +39,13 @@ class MainHandler(webapp2.RequestHandler):
 class SelectionHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/selections.html')
-        template_vars = {}
+
         response = self.request.get('interest')
         self.response.write(response)
+
         results = Place.query(Place.category == response).fetch()
         template_vars = {"results": results}
-        # if response == 'Food':
-        #     food_results = Place(category = response).query().fetch()
-        #     template_vars = {"results": food_results}
-        # if response == 'Sports':
-        #     sports_results = Place(category = response).query().fetch()
-        #     template_vars = {"results": sports_results}
-        # if response == 'Recreation':
-        #     recreation_results = Place(category = response).query().fetch()
-        #     template_vars = {"results": recreation_results}
-        # if response == 'Entertainment':
-        #     entertainment_results = Place(category = response).query().fetch()
-        #     template_vars = {"results": entertainment_results}
+
         self.response.out.write(template.render(template_vars))
         self.response.out.write('Here are your results!')
 
