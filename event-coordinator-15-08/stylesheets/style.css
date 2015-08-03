@@ -3,7 +3,7 @@ body{
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   /*Find a way to make the image a local copy
     image can be found in /stylesheets/images*/
-  background-image: url('http://i.imgur.com/SaxuUKr.jpg');
+  background-image: url('/images/chicago.jpg');
   background-size: cover;
   text-align: center;
 }

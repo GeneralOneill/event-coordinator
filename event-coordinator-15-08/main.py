@@ -20,10 +20,25 @@ import os
 
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
-
-class Food(self, location):
-    self.location = location
-    
+# hard coding classes for testing
+# class Food(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Entertainment(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Sport(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Random(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+#
+#  = Food('Portillos')
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
