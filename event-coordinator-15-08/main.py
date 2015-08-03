@@ -20,31 +20,36 @@ import os
 from google.appengine.ext import ndb
 
 
-
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-#class Food(self, location):
-#    self.location = location
-class Food(ndb.Model):
+class Place(ndb.Model):
     name = ndb.StringProperty(required = True)
     location = ndb.StringProperty(required = True)
+    value = ndb.StringProperty(required = True)
+    category = ndb.StringProperty()
+# class Food(ndb.Model):
+#     name = ndb.StringProperty(required = True)
+#     location = ndb.StringProperty(required = True)
+#     value = ndb.IntergerPropert(required = True)
+#
+# class Sports(ndb.Model):
+#     name = ndb.StringProperty(required = True)
+#     location = ndb.StringProperty(required = True)
+#     value = ndb.IntergerPropert(required = True)
+#
+# class Recreation(ndb.Model):
+#     name = ndb.StringProperty(required = True)
+#     location = ndb.StringProperty(required = True)
+#     value = ndb.IntergerPropert(required = True)
+#
+# class Entertainment(ndb.Model):
+#     name = ndb.StringProperty(required = True)
+#     location = ndb.StringProperty(required = True)
+#     value = ndb.IntergerPropert(required = True)
 
-class Sports(ndb.Model):
-    name = ndb.StringProperty(required = True)
-    location = ndb.StringProperty(required = True)
-
-class Recreation(ndb.Model):
-    name = ndb.StringProperty(required = True)
-    location = ndb.StringProperty(required = True)
-
-class Entertainment(ndb.Model):
-    name = ndb.StringProperty(required = True)
-    location = ndb.StringProperty(required = True)
-#If this code doesn't work, delete it
-
-portillos =Food(name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654")
-giordanos =Food(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611")
+# portillos = Place(category = "Food", name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654", value = '4')
+# giordanos = Place(category = "Food", name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611", value = '2')
 # portillos.put()
 # giordanos.put()
 class MainHandler(webapp2.RequestHandler):
@@ -60,20 +65,22 @@ class SelectionHandler(webapp2.RequestHandler):
         template_vars = {}
         response = self.request.get('interest')
         self.response.write(response)
-        if response == 'Food':
-            food_results = Food.query().fetch()
-            template_vars = {"results": food_results}
-        if response == 'Sports':
-            sports_results = Sports.query().fetch()
-            template_vars = {"results": sports_results}
-        if response == 'Recreation':
-            recreation_results = Recreation.query().fetch()
-            template_vars = {"results": recreation_results}
-        if response == 'Entertainment':
-            entertainment_results = Entertainment.query().fetch()
-            template_vars = {"results": entertainment_results}
+        results = Place.query(Place.category == response).fetch()
+        template_vars = {"results": results}
+        # if response == 'Food':
+        #     food_results = Place(category = response).query().fetch()
+        #     template_vars = {"results": food_results}
+        # if response == 'Sports':
+        #     sports_results = Place(category = response).query().fetch()
+        #     template_vars = {"results": sports_results}
+        # if response == 'Recreation':
+        #     recreation_results = Place(category = response).query().fetch()
+        #     template_vars = {"results": recreation_results}
+        # if response == 'Entertainment':
+        #     entertainment_results = Place(category = response).query().fetch()
+        #     template_vars = {"results": entertainment_results}
         self.response.out.write(template.render(template_vars))
-        # self.response.out.write('Here are your results!')
+        self.response.out.write('Here are your results!')
 
 
 
