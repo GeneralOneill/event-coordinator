@@ -43,17 +43,27 @@ class Entertainment(ndb.Model):
     location = ndb.StringProperty(required = True)
 #If this code doesn't work, delete it
 
+portillos =Food(name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654")
+giordanos =Food(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611")
+
+# portillos.put()
+# giordanos.put()
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
         self.response.out.write(template.render())
         self.response.out.write('Click here to get your results!')
 
+
 class SelectionHandler(webapp2.RequestHandler):
     def get(self):
+        food_results = Food.query().fetch()
+        template_vars = {"results": food_results}
         template = jinja_environment.get_template('templates/selections.html')
-        self.response.out.write(template.render())
-        self.response.out.write('Here are your results!')
+        self.response.out.write(template.render(template_vars))
+        # self.response.out.write('Here are your results!')
+
 
 
 app = webapp2.WSGIApplication([
