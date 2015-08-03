@@ -32,6 +32,7 @@ class SelectionHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/selections.html')
         self.response.out.write(template.render())
         self.response.out.write('SelectionHandler')
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/selections', SelectionHandler)
