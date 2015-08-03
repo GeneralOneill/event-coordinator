@@ -23,6 +23,7 @@ from google.appengine.ext import ndb
 
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+<<<<<<< HEAD
 
 #class Food(self, location):
 #    self.location = location
@@ -48,6 +49,27 @@ giordanos =Food(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 606
 
 # portillos.put()
 # giordanos.put()
+=======
+# hard coding classes for testing
+# class Food(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Entertainment(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Sport(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+# class Random(object):
+#     def __init__(self,name,location):
+#         self.name = name
+#         self.location = location
+#
+#  = Food('Portillos')
+>>>>>>> 8fb7b80486abeb9d02e8a46996f8839f5457072e
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
