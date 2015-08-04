@@ -1,21 +1,42 @@
 var map;
 var infowindow;
+var current_location;
+var lat = 41.8893683;
+var long = -87.6290385;
 
-function initialize() {
-  var pyrmont = new google.maps.LatLng(41.8893701, -87.62902489999999);
+function getUserLocation() {
+  console.log('Got location');
+  if (navigator.geolocation)
+  navigator.geolocation.getCurrentPosition(setLocation);
+  else
+    document.getElementById("locationData").innerHTML = "Sorry - your browser doesn't support geolocation!";
+}
 
+function setLocation(position) {
+  lat = position.coords.latitude
+  long = position.coords.longitude;
+  console.log(lat);
+  console.log(long);
+  map.setCenter({lat: lat, lng: long})
+}
+
+function initialize(){
+  // (41.8893683, -87.6290385)
+  console.log('Get location');
+  current_location = new google.maps.LatLng(lat,long);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: pyrmont,
+    center: current_location,
     zoom: 15
   });
+  getUserLocation();
 
+  infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
   var request = {
-    location: pyrmont,
+    location: current_location,
     radius: 500,
     types: ['store']
   };
-  infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 }
 
