@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
+
 body{
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -7,5 +8,126 @@ body{
   text-align: center;
   font-family: Playfair Display
 }
-#form_backdrop{
+/*#form_backdrop{
+}*/
+#myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #000000;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #000000;
+	box-shadow:inset 0px 1px 0px 0px #000000;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #dae0d7));
+	background:-moz-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-webkit-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-o-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-ms-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:linear-gradient(to bottom, #000000 5%, #dae0d7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#dae0d7',GradientType=0);
+	background-color:#000000;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+}
+#myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dae0d7), color-stop(1, #000000));
+	background:-moz-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-webkit-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-o-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-ms-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:linear-gradient(to bottom, #dae0d7 5%, #000000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dae0d7', endColorstr='#000000',GradientType=0);
+	background-color:#dae0d7;
+}
+#myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#location_button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #000000;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #000000;
+	box-shadow:inset 0px 1px 0px 0px #000000;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dae0d7), color-stop(1, #000000));
+	background:-moz-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-webkit-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-o-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:-ms-linear-gradient(top, #dae0d7 5%, #000000 100%);
+	background:linear-gradient(to bottom, #dae0d7 5%, #000000 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dae0d7', endColorstr='#000000',GradientType=0);
+	background-color:#dae0d7;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+}
+#location_button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-webkit-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-o-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:-ms-linear-gradient(top, #000000 5%, #dae0d7 100%);
+	background:linear-gradient(to bottom, #000000 5%, #dae0d7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#dae0d7',GradientType=0);
+	background-color:#000000;
+}
+#location_button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#number_of_people_drop  {
+  margin: 0;
+  padding: 7px 6px 0;
+  background: #000000 url(images/overlay.png) repeat-x 0 -110px;
+  line-height: 100%;
+  border-radius: 1em;
+  font: normal 0.5333333333333333em Arial, Helvetica, sans-serif;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  width: auto;
+}
+
+#number_of_people_drop  {
+  font-weight: bold;
+  font-size: 13px;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+#interest_drop  {
+  margin: 0;
+  padding: 7px 6px 0;
+  background: #000000 url(images/overlay.png) repeat-x 0 -110px;
+  line-height: 100%;
+  border-radius: 1em;
+  font: normal 0.5333333333333333em Arial, Helvetica, sans-serif;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  width: auto;
+}
+
+#interest_drop  {
+  font-weight: bold;
+  font-size: 13px;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
