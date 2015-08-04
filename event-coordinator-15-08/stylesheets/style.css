@@ -8,8 +8,7 @@ body{
   text-align: center;
   font-family: Playfair Display
 }
-/*#form_backdrop{
-}*/
+
 #myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #000000;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #000000;
@@ -31,6 +30,7 @@ body{
 	font-weight:bold;
 	padding:6px 12px;
 	text-decoration:none;
+  border-radius: 4px;
 }
 #myButton:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dae0d7), color-stop(1, #000000));
@@ -68,6 +68,7 @@ body{
 	font-weight:bold;
 	padding:6px 12px;
 	text-decoration:none;
+  border-radius: 4px;
 }
 #location_button:hover {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #ffffff));
@@ -84,9 +85,7 @@ body{
 	top:1px;
 }
 
-
-
-#number_of_people_drop  {
+.drop_down  {
   margin: 0;
   padding: 7px 6px 0;
   background: #000000 url(images/overlay.png) repeat-x 0 -110px;
@@ -101,30 +100,7 @@ body{
   width: auto;
 }
 
-#number_of_people_drop  {
-  font-weight: bold;
-  font-size: 13px;
-  color: #FFFFFF;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-#interest_drop  {
-  margin: 0;
-  padding: 7px 6px 0;
-  background: #000000 url(images/overlay.png) repeat-x 0 -110px;
-  line-height: 100%;
-  border-radius: 1em;
-  font: normal 0.5333333333333333em Arial, Helvetica, sans-serif;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-  width: auto;
-}
-
-#interest_drop  {
+.drop_down  {
   font-weight: bold;
   font-size: 13px;
   color: #FFFFFF;
