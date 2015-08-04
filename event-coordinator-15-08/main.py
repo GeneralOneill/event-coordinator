@@ -18,9 +18,15 @@ import webapp2
 import jinja2
 import os
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+class UserModel(ndb.Model):
+    currentUser = ndb.StringProperty(required = True)
+    some_text = ndb.TextProperty()
+    some_more_test = ndb.TextProperty()
 
 class Place(ndb.Model):
     name = ndb.StringProperty(required = True)
@@ -51,9 +57,15 @@ Recreation_2 = Place(name = "Fun Times", location = "1", value = "2", category =
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/main.html')
-        self.response.out.write(template.render())
-        self.response.out.write('Click here to get your results!')
+        user = users.get_current_user()
+        if user:
+            template = jinja_environment.get_template('templates/main.html')
+            self.response.out.write(template.render())
+            self.response.out.write('Click here to get your results!')
+            user = UserModel(currentUser = user.user_id(), some_text= "hey")
+            user.put()
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
 
 class SelectionHandler(webapp2.RequestHandler):
     def get(self):
