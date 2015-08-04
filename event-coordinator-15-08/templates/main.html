@@ -5,7 +5,7 @@
     <script src="scripts/geolocation.js"></script>
   </head>
   <body>
-    <input type="button" value="Get Location" onclick="getUserLocation()"/>
+    <input type="button" value="Get Location" onclick="getUserLocation()" id="location_button"/>
 
     <div id="locationData">
     Location data here
@@ -13,7 +13,7 @@
     <form method="get" action="selections">
       <div id="form_backdrop">
         <p>Select the number of people in your group</P>
-        <select list="number_of_people" value="Number of People" name="number_of_people">
+        <select list="number_of_people" value="Number of People" name="number_of_people" id="number_of_people_drop">
         <datalist id="number_of_people">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -22,7 +22,7 @@
         </datalist>
       </select>
       <p>Select something that you would like to do</p>
-      <select list="interest" value="Interest" name="interest">
+      <select list="interest" value="Interest" name="interest" id="interest_drop">
       <datalist id="interest">
         <option value="Sports">Sports</option>
         <option value="Entertainment">Entertainment</option>
@@ -31,7 +31,7 @@
       </datalist>
     </select>
     </div>
-      <p><input type="submit" >
+      <p><input type="submit" id="myButton" >
     </form>
   </body>
 </html>
