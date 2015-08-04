@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+    <link href="stylesheets/selections.css" type="text/css" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
@@ -12,13 +12,15 @@
       }
 
     </style>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    <script src="scripts/places.js"></script>
   </head>
   <body>
-      {% for result in results %}
-      <h2>{{result.name}}</h2>
-      {%endfor%}
-      <div id="map-canvas"></div>
+    <h2 class="text">Things To Do:</h2>
+      <div class="background">
+    <div class="transbox">
+      <p>      {% for result in results %}
+            <h2 class="results">{{result.name}}</h2>
+            {%endfor%}</p>
+    </div>
+  </div>
   </body>
 </html>
