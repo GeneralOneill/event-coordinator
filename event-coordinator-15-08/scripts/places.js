@@ -4,6 +4,7 @@ var current_location;
 var lat = 45.8893683;
 var long = -87.6290385;
 var place_list = [];
+var place_dictionary = {};
 
 function getUserLocation() {
   if (navigator.geolocation)
@@ -44,9 +45,13 @@ function find_nearby(type){
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
+      // console.log(results[i]);
       createMarker(results[i]);
-      place_list.push(results[i].name);
-      $('#place_list').append(results[i].name + "<br>")
+      place_list.push(results[i]);
+      place_dictionary['place'+i]=results[i]
+      // console.log(place_dictionary);
+      $('#place_list').append("<div class='place' id=" + "place" + i + ">" + results[i].name + "</div><br/>");
+      // $('#info_box').append(results[i].vicinity + "<br>");
     }
   }
   console.log(place_list);
@@ -73,3 +78,11 @@ function createMarker(place) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+$(document).ready(function(){
+  $('#container').click(function(e) {
+    console.log(e.target.id);
+    console.log(e.target.class);
+    $('#info_box').append(place_dictionary[e.target.id].vicinity + "<br/>")
+  });
+})

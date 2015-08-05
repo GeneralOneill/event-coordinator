@@ -9,7 +9,7 @@ body {
   font-family: Playfair Display;
 }
 
-#results {
+.results {
   color: black
   left: 10px;
   width: 300px;
