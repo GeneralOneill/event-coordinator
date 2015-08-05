@@ -8,7 +8,9 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script src="scripts/places.js"></script>
     <script src="scripts/script.js"></script>
+
   </head>
+
   <body>
     <div id="map-canvas"></div>
     <h2 id="things_to_do">Things To Do:</h2>
@@ -17,9 +19,22 @@
         {% for result in results %}
         <h2 class="results">{{result.name}}</h2>
         {%endfor%}
-      </br>
-      <div id="info_box">
-      </div>
+      </p>
+        <p id = "place-name">
+        </p>
+        <p id = "place-address">
+        </p>
+        <p id = "place-phone">
+        </p>
+        <p id = "place-id">
+        </p>
+        <p id = "place-website">
+        </p>
+        <p id = "place-rating">
+
+        </p>
+        <p id = "opening-hours">
+      </p>
     </div>
   </body>
 </html>
