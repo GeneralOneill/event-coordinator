@@ -4,6 +4,9 @@
     <link href="stylesheets/selections.css" type="text/css" rel="stylesheet">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="scripts/places.js">
+      </script>
     <style>
       html, body, #map-canvas {
         height: 100%;
@@ -21,5 +24,6 @@
             {%endfor%}</p>
     </div>
   </div>
+  <div id="map-canvas"></div>
   </body>
 </html>
