@@ -5,7 +5,6 @@ var lat = 45.8893683;
 var long = -87.6290385;
 
 function getUserLocation() {
-  console.log('Got location');
   if (navigator.geolocation)
   navigator.geolocation.getCurrentPosition(setLocation);
   else
