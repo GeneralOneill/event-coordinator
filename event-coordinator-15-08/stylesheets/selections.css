@@ -7,11 +7,6 @@ body{
   font-family: Playfair Display
 }
 
-#things_to_do {
-  color: white;
-  text-indent: 90px;
-}
-
 .results {
   color: black
   left: 10px;
@@ -24,11 +19,9 @@ body{
     background-color: #ffffff;
     opacity: 0.6;
     filter: alpha(opacity=60);
-    position: absolute;
-    left: 10px;
+    float: left;
     width: 300px;
     height: 587px;
-    padding: 10px;
     border-radius: 4px;
 }
 
@@ -39,4 +32,13 @@ body{
   padding-top: 0px;
   border-radius: 4px;
   float: right;
+}
+
+#things_to_do {
+  color: white;
+}
+
+#selection_button{
+  height: 60px;
+  width: 200px;
 }

@@ -3,6 +3,7 @@ var infowindow;
 var current_location;
 var lat = 45.8893683;
 var long = -87.6290385;
+var place_list = [];
 
 function getUserLocation() {
   if (navigator.geolocation)
@@ -44,10 +45,11 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
+      place_list.push(results[i].name);
     }
   }
+  console.log(place_list);
 }
-
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
