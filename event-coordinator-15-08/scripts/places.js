@@ -67,7 +67,7 @@ function createMarker(place) {
   document.getElementById('opening-hours').value = place.opening_hours;
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + place.formatted_phone_number);
+    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + "<p> Telephone: 773-537-9911</p>"  + "<p>www.dunkindonuts.com</p>");
     infowindow.open(map, this);
   });
 }
