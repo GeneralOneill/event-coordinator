@@ -46,7 +46,7 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       place_list.push(results[i].name);
-      $('#place_list').append(results[i].name)
+      $('#place_list').append(results[i].name + "<br>")
     }
   }
   console.log(place_list);
