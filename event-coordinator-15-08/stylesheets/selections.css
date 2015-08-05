@@ -1,10 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 
-body{
+body {
+  color: white;
   background-image: url('/images/chicago.jpg');
   background-size: cover;
   text-align: left;
-  font-family: Playfair Display
+  font-family: Playfair Display;
 }
 
 .results {
@@ -26,8 +27,8 @@ body{
 }
 
 #map-canvas {
-  height: 360px;
-  width: 640px;
+  height: 460px;
+  width: 1040px;
   margin-top: 52px;
   padding-top: 0px;
   border-radius: 4px;
@@ -40,5 +41,18 @@ body{
 
 #selection_button{
   height: 60px;
-  width: 200px;
+  width: 20
+  0px;
+}
+#info_box {
+    background-color: #ffffff;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    position: absolute;
+    left: 380px;
+    top: 482px;
+    height: 127px;
+    width: 1040px;
+    border-radius: 4px;
+    float: right;
 }

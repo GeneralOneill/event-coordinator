@@ -46,6 +46,7 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       place_list.push(results[i].name);
+      $('#place_list').append(results[i].name)
     }
   }
   console.log(place_list);
@@ -57,8 +58,16 @@ function createMarker(place) {
     position: place.geometry.location
   });
 
+  document.getElementById('place-name').value = place.name;
+  document.getElementById('place-address').value = place.vicinity;
+  document.getElementById('place-website').value= place.website;
+  document.getElementById('place-rating').value= place.rating;
+  document.getElementById('place-phone').value = place.formatted_phone_number;
+  document.getElementById('place-id').value = place.id;
+  document.getElementById('opening-hours').value = place.opening_hours;
+
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
+    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + place.formatted_phone_number);
     infowindow.open(map, this);
   });
 }

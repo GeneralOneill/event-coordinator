@@ -61,6 +61,7 @@ class SelectionHandler(webapp2.RequestHandler):
 
         interest = self.request.get('interest')
 
+
         number_of_people = self.request.get('number_of_people')
 
         results = Place.query(Place.category == interest, Place.value == number_of_people).fetch()
@@ -68,6 +69,9 @@ class SelectionHandler(webapp2.RequestHandler):
 
         self.response.out.write(template.render(template_vars))
 
+    def post(self):
+        the_list = self.request.get_post("locations_list")
+        self.response.write(the_list)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
