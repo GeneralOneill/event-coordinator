@@ -1,11 +1,10 @@
 var map;
 var infowindow;
 var current_location;
-var lat = 41.8893683;
+var lat = 45.8893683;
 var long = -87.6290385;
 
 function getUserLocation() {
-  console.log('Got location');
   if (navigator.geolocation)
   navigator.geolocation.getCurrentPosition(setLocation);
   else
@@ -15,27 +14,28 @@ function getUserLocation() {
 function setLocation(position) {
   lat = position.coords.latitude
   long = position.coords.longitude;
-  console.log(lat);
-  console.log(long);
+  current_location = new google.maps.LatLng(lat,long);
+  console.log(current_location);
   map.setCenter({lat: lat, lng: long})
+  find_nearby('store');
 }
 
 function initialize(){
-  // (41.8893683, -87.6290385)
-  console.log('Get location');
   current_location = new google.maps.LatLng(lat,long);
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: current_location,
     zoom: 15
   });
   getUserLocation();
+}
 
+function find_nearby(type){
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   var request = {
     location: current_location,
     radius: 500,
-    types: ['store']
+    types: [type]
   };
   service.nearbySearch(request, callback);
 }

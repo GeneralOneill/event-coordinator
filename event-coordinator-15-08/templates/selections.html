@@ -2,8 +2,10 @@
 <html>
   <head>
     <link href="stylesheets/selections.css" type="text/css" rel="stylesheet">
+
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+<<<<<<< HEAD
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script src="scripts/places.js">
       </script>
@@ -14,16 +16,27 @@
         padding: 0;
       }
     </style>
+=======
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="scripts/places.js"></script>
+>>>>>>> e5d5b03fb5a4b11e6acdf5e93960ae20b0e73fd0
   </head>
   <body>
-    <h2 class="text">Things To Do:</h2>
-      <div class="background">
-    <div class="transbox">
-      <p>      {% for result in results %}
-            <h2 class="results">{{result.name}}</h2>
-            {%endfor%}</p>
+    <div id="map-canvas"></div>
+    <h2 id="things_to_do">Things To Do:</h2>
+    <div class="background, transbox">
+      <p>
+        {% for result in results %}
+        <h2 class="results">{{result.name}}</h2>
+        {%endfor%}
+      </p>
     </div>
+<<<<<<< HEAD
   </div>
   <div id="map-canvas"></div>
+=======
+>>>>>>> e5d5b03fb5a4b11e6acdf5e93960ae20b0e73fd0
   </body>
 </html>

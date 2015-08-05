@@ -7,7 +7,7 @@ body {
   font-family: Playfair Display;
 }
 
-.text {
+#things_to_do {
   color: white;
   text-indent: 90px;
 }
@@ -31,10 +31,11 @@ body {
     border-radius: 4px;
 }
 
-#map-canvas{
-  position: absolute;
-  right: 10px;
-  width: 1092px;
-  height: 200px;
+#map-canvas {
+  height: 360px;
+  width: 640px;
+  margin-top: 52px;
+  padding-top: 0px;
   border-radius: 4px;
+  float: right;
 }
