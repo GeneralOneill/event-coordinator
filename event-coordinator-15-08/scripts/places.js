@@ -6,6 +6,31 @@ var long = -87.6290385;
 var place_list = [];
 var place_dictionary = {};
 
+
+var QueryString = function () {
+  // This function is anonymous, is executed immediately and
+  // the return value is assigned to QueryString!
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+        // If first entry with this name
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+      query_string[pair[0]] = arr;
+        // If third or later entry with this name
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  }
+    return query_string;
+}();
+// alert(QueryString.interest)
+
 function getUserLocation() {
   if (navigator.geolocation)
   navigator.geolocation.getCurrentPosition(setLocation);
@@ -19,7 +44,7 @@ function setLocation(position) {
   current_location = new google.maps.LatLng(lat,long);
   console.log(current_location);
   map.setCenter({lat: lat, lng: long})
-  find_nearby('store');
+  find_nearby(QueryString.interest);
 }
 
 function initialize(){
@@ -53,6 +78,7 @@ function callback(results, status) {
       $('#place_list').append("<div class='place' id=" + "place" + i + ">" + results[i].name + "</div><br/>");
       // $('#info_box').append(results[i].vicinity + "<br>");
     }
+    console.log(results[0]);
   }
   console.log(place_list);
 }
@@ -81,8 +107,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
   $('#container').click(function(e) {
+    $('#info_box').empty();
     console.log(e.target.id);
     console.log(e.target.class);
-    $('#info_box').append(place_dictionary[e.target.id].vicinity + "<br/>")
+    $('#info_box').append('Location: ' + place_dictionary[e.target.id].vicinity + "<br/>")
+    $('#info_box').append('Price Level: ' + place_dictionary[e.target.id].price_level + "<br/>")
+    $('#info_box').append('Rating: ' + place_dictionary[e.target.id].rating + "<br/>")
   });
 })
