@@ -14,27 +14,16 @@
     <div id="map-canvas"></div>
     <h2 id="things_to_do">Things To Do:</h2>
     <div class="background, transbox">
-      <div id="info_box"></div>
-      <br>
-        {% for result in results %}
-        <h2 class="results">{{result.name}}</h2>
-        {%endfor%}
-      </p>
-      <span class="gm-numeric-rev" jscontent="numRating" jstcache="13"></span>
-        <p id = "place-name">
-        </p>
-        <p id = "place-address">
-        </p>
-        <p id = "place-phone">
-        </p>
-        <p id = "place-id">
-        </p>
-        <p id = "place-website">
-        </p>
-        <p id = "place-rating">
-        </p>
-        <p id = "opening-hours">
-      </p>
+        <h2 class="results" id="place_list"></h2>
     </div>
+      <div id="info_box">
+        <p id = "place-name"></p>
+        <p id = "place-address"></p>
+        <p id = "place-phone"></p>
+        <p id = "place-id"></p>
+        <p id = "place-website"></p>
+        <p id = "place-rating"></p>
+        <p id = "opening-hours"></p>
+      </div>
   </body>
 </html>

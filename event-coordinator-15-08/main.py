@@ -69,7 +69,9 @@ class SelectionHandler(webapp2.RequestHandler):
 
         self.response.out.write(template.render(template_vars))
 
-
+    def post(self):
+        the_list = self.request.get_post("locations_list")
+        self.response.write(the_list)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
