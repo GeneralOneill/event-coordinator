@@ -60,16 +60,13 @@ class SelectionHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/selections.html')
 
         interest = self.request.get('interest')
-        self.response.write(interest)
 
         number_of_people = self.request.get('number_of_people')
-        self.response.write(number_of_people)
 
         results = Place.query(Place.category == interest, Place.value == number_of_people).fetch()
         template_vars = {"results": results}
 
         self.response.out.write(template.render(template_vars))
-        self.response.out.write('Here are your results!')
 
 
 app = webapp2.WSGIApplication([
