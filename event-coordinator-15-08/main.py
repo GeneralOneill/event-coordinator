@@ -59,7 +59,7 @@ class SelectionHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/selections.html')
 
-        interest = self.request.get('interest')
+        interest = self.request.get('interest').lower()
 
 
         number_of_people = self.request.get('number_of_people')

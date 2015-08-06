@@ -18,7 +18,7 @@ function setLocation(position) {
   current_location = new google.maps.LatLng(lat,long);
   console.log(current_location);
   map.setCenter({lat: lat, lng: long})
-  find_nearby('store');
+  find_nearby('food');
 }
 
 function initialize(){
@@ -67,7 +67,7 @@ function createMarker(place) {
   document.getElementById('opening-hours').value = place.opening_hours;
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + "<p> Telephone: 773-537-9911</p>"  + "<p>www.dunkindonuts.com</p>");
+    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + place.formatted_phone_number);
     infowindow.open(map, this);
   });
 }
