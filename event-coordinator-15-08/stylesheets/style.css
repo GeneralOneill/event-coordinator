@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 
-body{
+body {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   background-image: url('/images/chicago.jpg');

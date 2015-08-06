@@ -43,6 +43,7 @@ function setLocation(position) {
   console.log(current_location);
   map.setCenter({lat: lat, lng: long})
   find_nearby(QueryString.interest,QueryString.radius);
+
 }
 
 function initialize(){

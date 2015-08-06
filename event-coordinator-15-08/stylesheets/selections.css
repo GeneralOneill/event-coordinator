@@ -27,17 +27,18 @@ body {
 }
 
 #map-canvas {
-  height: 460px;
-  width: 950px;
-  margin-top: 52px;
-  padding-top: 0px;
+  height: 427px;
+  width: 1040px;
+  position: absolute;
+  top: 238px;
+  left: 384px;
   border-radius: 4px;
   float: right;
 }
 
 #things_to_do {
   color: white;
-  text-indent: 70px
+  text-indent: 70px;
 }
 
 #selection_button{
@@ -51,10 +52,21 @@ body {
     filter: alpha(opacity=80);
     position: absolute;
     left: 384px;
-    top: 538px;
-    height: 120px;
+    top: 55px;
+    height: 140px;
     width: 1040px;
     border-radius: 4px;
     float: right;
     overflow: scroll;
+}
+
+#home_button {
+  float: right;
+  margin-top: 680px;
+  margin-right: 180px;
+}
+
+img {
+  height: 50px;
+  width: 60px;
 }
