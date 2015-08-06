@@ -22,24 +22,24 @@ from google.appengine.ext import ndb
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class Place(ndb.Model):
-    name = ndb.StringProperty(required = True)
-    location = ndb.StringProperty(required = True)
-    value = ndb.StringProperty(required = True)
-    category = ndb.StringProperty(repeated = True)
-
-portillos = Place(name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654", value = "4", category = ["Food"])
-giordanos = Place(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611", value = "2", category = ["Food"])
-
-Sports_1 = Place(name = "Football", location = "1", value = "1", category = ["Sports"])
-Sports_2 = Place(name = "Soccer", location = "1", value = "3", category = ["Sports"])
-
-Entertainment_1 = Place(name = "Movies", location = "1", value = "1", category = ["Entertainment"])
-Entertainment_2 = Place(name = "Shows", location = "1", value = "2", category = ["Entertainment"])
-
-Recreation_1 = Place(name = "Happy Times", location = "1", value = "4", category = ["Recreation"])
-Recreation_2 = Place(name = "Fun Times", location = "1", value = "2", category = ["Recreation"])
-
+# class Place(ndb.Model):
+#     name = ndb.StringProperty(required = True)
+#     location = ndb.StringProperty(required = True)
+#     value = ndb.StringProperty(required = True)
+#     category = ndb.StringProperty(repeated = True)
+#
+# portillos = Place(name = "Portillos", location = "100 W Ontario St, Chicago, IL 60654", value = "4", category = ["Food"])
+# giordanos = Place(name = "Giordanos", location = "700 E Grand Ave, Chicago, IL 60611", value = "2", category = ["Food"])
+#
+# Sports_1 = Place(name = "Football", location = "1", value = "1", category = ["Sports"])
+# Sports_2 = Place(name = "Soccer", location = "1", value = "3", category = ["Sports"])
+#
+# Entertainment_1 = Place(name = "Movies", location = "1", value = "1", category = ["Entertainment"])
+# Entertainment_2 = Place(name = "Shows", location = "1", value = "2", category = ["Entertainment"])
+#
+# Recreation_1 = Place(name = "Happy Times", location = "1", value = "4", category = ["Recreation"])
+# Recreation_2 = Place(name = "Fun Times", location = "1", value = "2", category = ["Recreation"])
+#
 # portillos.put()
 # giordanos.put()
 # Sports_1.put()

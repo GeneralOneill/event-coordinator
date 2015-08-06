@@ -92,14 +92,20 @@ function createMarker(place) {
   map.setCenter(marker.position);
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating);
+    infowindow.setContent("<div> Name: " + place.name + "<br /> Location: " + place.vicinity + "</div>");
     infowindow.open(map, this);
   });
 }
 
 function add_info(object){
+  if(place_dictionary[object].name){
+    $('#info_box').append('Location: ' + place_dictionary[object].name + "<br/>")
+  }
   if(place_dictionary[object].vicinity){
     $('#info_box').append('Location: ' + place_dictionary[object].vicinity + "<br/>")
+  }
+  if(place_dictionary[object].rating){
+    $('#info_box').append('Location: ' + place_dictionary[object].rating + "<br/>")
   }
   if (place_dictionary[object].price_level) {
     $('#info_box').append('Price Level: ' + place_dictionary[object].price_level + "<br/>")
@@ -113,10 +119,6 @@ function add_info(object){
   if (place_dictionary[object].website) {
     $('#info_box').append('Website: ' + place_dictionary[object].website + "<br/>")
   }
-
-
-
-
 
 }
 google.maps.event.addDomListener(window, 'load', initialize);
