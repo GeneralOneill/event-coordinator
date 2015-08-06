@@ -64,7 +64,7 @@ class MainHandler(webapp2.RequestHandler):
         if user:
             self.response.write(user)
             user = UserModel(currentUser = user.user_id())
-            user.put()
+            # user.put()
         else:
             self.redirect(users.create_login_url(self.request.uri))
         template = jinja_environment.get_template('templates/main.html')

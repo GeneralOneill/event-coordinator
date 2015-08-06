@@ -1,11 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);*/
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body {
   color: black;
   background-image: url('/images/chicago.jpg');
   background-size: cover;
   text-align: center;
-  font-family: Playfair Display;
+  font-family: Oswald;
 }
 
 .transbox {
@@ -13,7 +14,7 @@ body {
     opacity: 0.8;
     filter: alpha(opacity=80);
     width: 950px;
-    height: 335px;
+    height: 385px;
     border-radius: 4px;
     position: absolute;
     top:0;
@@ -25,6 +26,12 @@ body {
 }
 
 #google_logo {
-  height: 13%;
-  width: 13%;
+  height: 11%;
+  width: 11%;
+}
+
+#info_para {
+  font-size: 110%;
+  margin-left: 10px;
+  margin-right: 10px;
 }

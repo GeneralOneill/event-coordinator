@@ -96,12 +96,6 @@ function createMarker(place) {
   });
 }
 
-//   // $.post("the_handler", {  }, function(data) {
-//   //
-//   // })
-// //   $.post( "", function( data ) {
-// //   alert( "Data Loaded: " + data );
-// // });
 function post_favorites(){
   $.post("favorites", { selected_place: selected_place_id }, function(data) {
 
