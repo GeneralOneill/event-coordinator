@@ -4,7 +4,6 @@ var infowindow;
 var current_location;
 var lat = 45.8893683;
 var long = -87.6290385;
-var place_list = [];
 var place_dictionary = {};
 var QueryString = function () {
   // This function is anonymous, is executed immediately and
@@ -69,13 +68,11 @@ function find_nearby(type,radius){
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {;
-      place_list.push(results[i]);
       place_dictionary['place'+i]=results[i]
       $('#place_list').append("<div class='place' id=" + "place" + i + ">" + results[i].name + "</div><br/>");
     }
     console.log(results[0]);
   }
-  console.log(place_list);
 }
 
 function ClearMarker() {

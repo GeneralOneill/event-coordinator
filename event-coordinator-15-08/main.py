@@ -18,6 +18,7 @@ import webapp2
 import jinja2
 import os
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -49,8 +50,20 @@ jinja_environment = jinja2.Environment(
 # Recreation_1.put()
 # Recreation_2.put()
 
+class UserModel(ndb.Model):
+    currentUser = ndb.StringProperty(required = True)
+    some_text = ndb.TextProperty()
+    some_more_text = ndb.TextProperty()
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        if user:
+            self.response.write(user)
+            user = UserModel(currentUser = user.user_id(), some_text= "hey")
+            user.put()
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
         template = jinja_environment.get_template('templates/main.html')
         self.response.out.write(template.render())
 
@@ -71,8 +84,15 @@ class AboutHandler(webapp2.RequestHandler):
         self.response.out.write(template.render())
         self.response.out.write('About')
 
+class HistoryHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/history.html')
+        self.response.out.write(template.render())
+
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
     ('/selections', SelectionHandler),
-    ('/about', AboutHandler)
+    ('/about', AboutHandler),
+    ('/history', HistoryHandler),
+    ('/.*', MainHandler),
 ], debug=True)
