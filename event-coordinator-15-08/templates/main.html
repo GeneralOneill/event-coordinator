@@ -9,18 +9,13 @@
   <body>
     <form method='get' action="selections">
       <div id='form_backdrop'>
-        <p>Select the number of people in your group</P>
-        <select id='number_of_people' value='Number of People' name='number_of_people' class='drop_down'>
-          <option value='1'>1</option>
-          <option value='2'>2</option>
-          <option value='3'>3</option>
-          <option value='4'>4</option>
-          <option value='5'>5</option>
-          <option value='6'>6+</option>
-        </select>
+        <p>Input the number of people in your group</P>
+        <input type="number" name="number_of_people" min="1" value="1" id='number_of_people'>
+        
+        <br />
 
-        <input type="text" name="radius" value="Enter Radius"></input>
-
+        Radius:
+        <input type="number" name="radius" min="1" max="50000" value="500">
         <button name='number_of_people_button' type='button' onclick='getData()'>Next</button>
       <p>Select something that you would like to do</p>
       <select id='interest' value='Interest' name='interest' class='drop_down'>
