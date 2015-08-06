@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);*/
+@import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body {
   color: black;
@@ -6,7 +7,7 @@ body {
   background-image: url('/images/chicago.jpg');
   background-size: cover;
   text-align: center;
-  font-family: Playfair Display
+  font-family: Oswald;
 }
 
 #interest_options{
@@ -128,4 +129,17 @@ body {
     right: 0;
     margin: auto;
     overflow: scroll;
+}
+
+#number_of_people{
+  width: 8%;
+  height: 4.5%;
+  border-radius: 4px;
+  border: 1px solid #000000;
+}
+
+#radius_box {
+  border-radius: 4px;
+  border: 1px solid #000000;
+
 }
