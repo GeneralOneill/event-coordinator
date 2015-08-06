@@ -100,6 +100,7 @@ function createMarker(place) {
 }
 
 function add_info(object){
+  $('#info_box').append('<input type="button" value="Add To Favorites" name="add_favorite" /><br />')
   if(place_dictionary[object].name){
     $('#info_box').append('Name: ' + place_dictionary[object].name + "<br/>")
   }
