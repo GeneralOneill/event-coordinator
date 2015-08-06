@@ -60,13 +60,21 @@ body {
     overflow: scroll;
 }
 
-#home_button {
+#about_button {
+  color: white;
   float: right;
-  margin-top: 680px;
-  margin-right: 180px;
+  margin-top: 690px;
+  margin-right: 150px;
 }
 
-img {
+#home_button {
+  color: white;
+  float: right;
+  margin-top: 690px;
+  margin-right: 10px;
+}
+
+/*img {
   height: 50px;
   width: 60px;
-}
+}*/
