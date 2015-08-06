@@ -69,7 +69,6 @@ class AboutHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/about.html')
         self.response.out.write(template.render())
-        self.response.out.write('About')
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
