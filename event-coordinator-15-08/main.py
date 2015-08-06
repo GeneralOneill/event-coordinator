@@ -87,10 +87,10 @@ class AboutHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/about.html')
         self.response.out.write(template.render())
 
-# class HistoryHandler(webapp2.RequestHandler):
-#     def get(self):
-#         template = jinja_environment.get_template('templates/history.html')
-#         self.response.out.write(template.render())
+class HistoryHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/history.html')
+        self.response.out.write(template.render())
 
 
 app = webapp2.WSGIApplication([

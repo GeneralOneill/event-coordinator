@@ -8,12 +8,7 @@
   </head>
   <body>
     <div class="transbox">
-    <h1>ASK</h1> <h1>JIM</h1>
-
-    <form action="logout">
-    <input type="submit" value="Logout" name="logout_button">
-    </form>
-    
+    <h1>ASK JIM</h1>
     <form method='get' action="selections">
       <div id='form_backdrop'>
         Input the number of people in your group
@@ -24,14 +19,20 @@
         Radius (Meters)
         <input type="number" name="radius" min="1" max="50000" value="500">
 
+        <button name='number_of_people_button' type='button' onclick='getData()' id="next_button">Next</button>
+
         <br />
-        <button name='number_of_people_button' type='button' onclick='getData()'>Next</button>
+
         <div id="interest_options">
         <p>Select something that you would like to do</p>
         <select id='interest' value='Interest' name='interest' class='drop_down'></select>
         <p><input type='submit' id='myButton'>
         </div>
       </div>
+    </form>
+
+    <form action="logout">
+      <input type="submit" value="Logout" name="logout_button">
     </form>
   </div>
   </body>
