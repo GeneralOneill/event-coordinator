@@ -9,6 +9,10 @@ body {
   font-family: Playfair Display
 }
 
+#interest_options{
+  display: none;
+}
+
 #myButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #000000;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #000000;
