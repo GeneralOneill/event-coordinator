@@ -69,11 +69,13 @@ class SelectionHandler(webapp2.RequestHandler):
 
         self.response.out.write(template.render(template_vars))
 
-    def post(self):
-        the_list = self.request.get_post("locations_list")
-        self.response.write(the_list)
-
+class AboutHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/about.html')
+        self.response.out.write(template.render())
+        self.response.out.write('About')
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/selections', SelectionHandler)
+    ('/selections', SelectionHandler),
+    ('/about', AboutHandler)
 ], debug=True)

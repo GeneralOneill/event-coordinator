@@ -1,5 +1,5 @@
 var map;
-var markers = [];
+var marker;
 var infowindow;
 var current_location;
 var lat = 45.8893683;
@@ -54,15 +54,6 @@ function initialize(){
   getUserLocation();
 }
 
-// function set_center_by_marker_location() {
-//   for (var i = 0; i < markers.length; i++) {
-//     var marker = markers[i]
-//     var lat = marker.getPosition().lat();
-//     var lng = marker.getPosition().lng();
-//     map.setCenter(lat,lng);
-//   }
-// }
-
 function find_nearby(type,radius){
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -86,50 +77,55 @@ function callback(results, status) {
   console.log(place_list);
 }
 
-function ClearMarkers() {
-  console.log('cleared')
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
+function ClearMarker() {
+  if(marker != null ){
+    marker.setMap(null);
   }
-  markers = [];
+  marker = null;
 }
 
 function createMarker(place) {
-  var placeLoc = place.geometry.location;
-  var marker = new google.maps.Marker({
+  marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
-  markers.push(marker);
-
-  document.getElementById('place-name').value = place.name;
-  document.getElementById('place-address').value = place.vicinity;
-  document.getElementById('place-website').value= place.website;
-  document.getElementById('place-rating').value= place.rating;
-  document.getElementById('place-phone').value = place.formatted_phone_number;
-  document.getElementById('place-id').value = place.id;
-  document.getElementById('opening-hours').value = place.opening_hours;
+  map.setCenter(marker.position);
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating + "<br />" + "<p>Telephone: 773-579-9911</p>" + "<p>Website: www.dunkindonuts.com</p>");
+    infowindow.setContent(place.name + "<br />" + place.vicinity +"<br />" + place.rating);
     infowindow.open(map, this);
   });
 }
 
+function add_info(object){
+  if(place_dictionary[object].vicinity){
+    $('#info_box').append('Location: ' + place_dictionary[object].vicinity + "<br/>")
+  }
+  if (place_dictionary[object].price_level) {
+    $('#info_box').append('Price Level: ' + place_dictionary[object].price_level + "<br/>")
+  }
+  if (place_dictionary[object].formatted_phone_number) {
+    $('#info_box').append('Phone Number: ' + place_dictionary[object].formatted_phone_number + "<br/>")
+  }
+  if (place_dictionary[object].opening_hours.open_now) {
+    $('#info_box').append('Open Now?: ' + place_dictionary[object].opening_hours.open_now + "<br/>")
+  }
+  if (place_dictionary[object].website) {
+    $('#info_box').append('Website: ' + place_dictionary[object].website + "<br/>")
+  }
+
+
+
+
+
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
   $('#container').click(function(e) {
     $('#info_box').empty();
-    console.log(markers);
-    ClearMarkers();
-    console.log(e.target.id);
-    console.log(e.target.class);
+    ClearMarker();
     createMarker(place_dictionary[e.target.id]);
-    $('#info_box').append('Location: ' + place_dictionary[e.target.id].vicinity + "<br/>")
-    $('#info_box').append('Price Level: ' + place_dictionary[e.target.id].price_level + "<br/>")
-    $('#info_box').append('Phone Number: ' + place_dictionary[e.target.id].formatted_phone_number + "<br/>")
-    $('#info_box').append('Opening Hours: ' + place_dictionary[e.target.id].opening_hours + "<br/>")
-    $('#info_box').append('Website: ' + place_dictionary[e.target.id].website + "<br/>")
+    add_info(e.target.id);
   });
 })
