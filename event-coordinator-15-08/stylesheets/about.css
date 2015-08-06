@@ -1,9 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 
 body {
-  color: white;
+  color: black;
   background-image: url('/images/chicago.jpg');
   background-size: cover;
-  text-align: left;
+  text-align: center;
   font-family: Playfair Display;
+}
+
+.transbox {
+    background-color: #ffffff;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    width: 950px;
+    height: 335px;
+    border-radius: 4px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: scroll;
+}
+
+#google_logo {
+  height: 13%;
+  width: 13%;
 }
