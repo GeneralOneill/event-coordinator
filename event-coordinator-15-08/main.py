@@ -59,11 +59,8 @@ class SelectionHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/selections.html')
 
-        interest = self.request.get('interest').lower()
-
-
-        number_of_people = self.request.get('number_of_people')
-
+        # interest = self.request.get('interest').lower()
+        # number_of_people = self.request.get('number_of_people')
         # results = Place.query(Place.category == interest, Place.value == number_of_people).fetch()
         # template_vars = {"results": results}
 
