@@ -17,6 +17,7 @@
 import webapp2
 import jinja2
 import os
+import logging
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
@@ -52,9 +53,7 @@ jinja_environment = jinja2.Environment(
 
 class UserModel(ndb.Model):
     currentUser = ndb.StringProperty(required = True)
-    some_text = ndb.TextProperty()
-    some_more_text = ndb.TextProperty()
-    # visited_places = ndb.TextProperty(repeated = True)
+    favorite_places = ndb.TextProperty(repeated = True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -64,7 +63,7 @@ class MainHandler(webapp2.RequestHandler):
             self.redirect(users.create_logout_url('/'))
         if user:
             self.response.write(user)
-            user = UserModel(currentUser = user.user_id(), some_text= "hey")
+            user = UserModel(currentUser = user.user_id())
             user.put()
         else:
             self.redirect(users.create_login_url(self.request.uri))
@@ -87,15 +86,24 @@ class AboutHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/about.html')
         self.response.out.write(template.render())
 
-class HistoryHandler(webapp2.RequestHandler):
+class FavoriteHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/history.html')
+        template = jinja_environment.get_template('templates/favorites.html')
         self.response.out.write(template.render())
+    def post(self):
+        user = users.get_current_user()
+        favorite = self.request.get('selected_place')
+        user = UserModel(currentUser = user.user_id(), favorite_places = [favorite])
+        # favorites = UserModel.query(UserModel.favorite_places == favorite).fetch()
+        # if favorites:
+        user.put()
+        logging.info(self.request.get("selected_place"))
+
 
 
 app = webapp2.WSGIApplication([
     ('/selections', SelectionHandler),
     ('/about', AboutHandler),
-    ('/history', HistoryHandler),
+    ('/favorites', FavoriteHandler),
     ('/.*', MainHandler),
 ], debug=True)
