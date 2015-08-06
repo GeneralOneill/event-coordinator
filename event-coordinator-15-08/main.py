@@ -53,7 +53,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/main.html')
         self.response.out.write(template.render())
-        self.response.out.write('Click here to get your results!')
+        # self.response.out.write('Click here to get your results!')
 
 class SelectionHandler(webapp2.RequestHandler):
     def get(self):
