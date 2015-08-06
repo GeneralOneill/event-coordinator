@@ -3,6 +3,7 @@ function getData(){
   // console.log($('#number_of_people').val());
   number_of_people = $('#number_of_people').val();
   display_options();
+  $('#interest_options').fadeIn();
 }
 
 function display_options(){
