@@ -54,10 +54,14 @@ class UserModel(ndb.Model):
     currentUser = ndb.StringProperty(required = True)
     some_text = ndb.TextProperty()
     some_more_text = ndb.TextProperty()
+    # visited_places = ndb.TextProperty(repeated = True)
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
+        request = self.request.get('logout_button')
+        if request:
+            self.redirect(users.create_logout_url('/'))
         if user:
             self.response.write(user)
             user = UserModel(currentUser = user.user_id(), some_text= "hey")
@@ -83,10 +87,10 @@ class AboutHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/about.html')
         self.response.out.write(template.render())
 
-class HistoryHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('templates/history.html')
-        self.response.out.write(template.render())
+# class HistoryHandler(webapp2.RequestHandler):
+#     def get(self):
+#         template = jinja_environment.get_template('templates/history.html')
+#         self.response.out.write(template.render())
 
 
 app = webapp2.WSGIApplication([

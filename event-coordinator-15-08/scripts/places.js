@@ -93,6 +93,10 @@ function createMarker(place) {
     infowindow.setContent("<div> Name: " + place.name + "<br /> Location: " + place.vicinity + "</div>");
     infowindow.open(map, this);
   });
+
+  // $.post("the_handler", {  }, function(data) {
+  //
+  // })
 }
 
 function add_info(object){
