@@ -59,3 +59,14 @@ body {
     float: right;
     overflow: scroll;
 }
+
+#home_button {
+  float: right;
+  margin-top: 680px;
+  margin-right: 180px;
+}
+
+img {
+  height: 50px;
+  width: 60px;
+}
