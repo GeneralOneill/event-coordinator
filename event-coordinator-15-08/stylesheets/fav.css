@@ -41,3 +41,12 @@ body {
   top: 700px;
   right: 200px;
 }
+
+#text {
+  color: white;
+}
+
+#text {
+  font-size: 500%;
+  text-align: center;
+}

@@ -54,6 +54,7 @@ jinja_environment = jinja2.Environment(
 class UserModel(ndb.Model):
     currentUser = ndb.StringProperty(required = True)
     favorite_places = ndb.TextProperty(repeated = True)
+    # name = ndb.StringProperty()
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -89,11 +90,12 @@ class AboutHandler(webapp2.RequestHandler):
 class FavoriteHandler(webapp2.RequestHandler):
     def get(self):
         user_id = users.get_current_user().user_id()
+        user_nickname = users.get_current_user().nickname()
         found_users = UserModel.query().filter(UserModel.currentUser == str(user_id)).fetch()
         favorite_places = found_users[0].favorite_places
         template = jinja_environment.get_template('templates/favorites.html')
         template_vars = {
-            'favorites': favorite_places
+            'favorites': favorite_places, 'name': user_nickname
             }
         self.response.out.write(template.render(template_vars))
     def post(self):
