@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+  color: white;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+  background-image: url('/images/chicago.jpg');
+  background-size: cover;
+  text-align: center;
+  font-family: Oswald;
+}
+
+.transbox {
+    background-color: #ffffff;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    /*margin-left: auto;
+    margin-right: auto;*/
+    width: 400px;
+    height: 300px;
+    border-radius: 4px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: scroll;
+    color: black;
+}
+
+#about_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 150px;
+}
+
+#home_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 200px;
+}
