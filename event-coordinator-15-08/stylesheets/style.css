@@ -117,7 +117,7 @@ body {
     /*margin-left: auto;
     margin-right: auto;*/
     width: 400px;
-    height: 400px;
+    height: 300px;
     border-radius: 4px;
     position: absolute;
     top:0;
@@ -130,7 +130,7 @@ body {
 
 #number_of_people{
   width: 8%;
-  height: 4.5%;
+  height: 5.5%;
   border-radius: 4px;
   border: 1px solid #000000;
 }
@@ -138,5 +138,45 @@ body {
 #radius_box {
   border-radius: 4px;
   border: 1px solid #000000;
+}
 
+h1 {
+  color: white;
+  font-size: 500%;
+}
+
+#ask {
+  margin-top: 15px;
+  margin-left: 530px;
+  float: left;
+}
+
+#jim {
+  margin-top: 15px;
+  margin-right: 530px;
+  float: right;
+}
+
+#about_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 150px;
+}
+
+#fav_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 200px;
+}
+
+#star {
+  width: 5%;
+  height: 9%;
+  position: absolute;
+  left: 35px;
+  right: 0;
+  top: 40px;
+  margin: auto;
 }

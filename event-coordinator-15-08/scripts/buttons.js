@@ -60,6 +60,20 @@ function display_options(){
     $('#interest').append("<option value='restaurant'>Restaurant</option>");
     $('#interest').append("<option value='shopping_mall'>Shopping mall</option>");
   }
+  else if (number_of_people == 30) {
+    $('#interest').append("<option value='amusement_park'>Amusement Park</option>");
+    $('#interest').append("<option value='bowling_alley'>Bowling Alley</option>");
+    $('#interest').append("<option value='campground'>Campground</option>");
+    $('#interest').append("<option value='cemetery'>Cemetery</option>");
+    $('#interest').append("<option value='cemetery'>CSSI</option>");
+    $('#interest').append("<option value='liquor_store'>Liquor Store</option>");
+    $('#interest').append("<option value='movie_theater'>Movie Theater</option>");
+    $('#interest').append("<option value='museum'>Museum</option>");
+    $('#interest').append("<option value='park'>Park</option>");
+    $('#interest').append("<option value='restaurant'>Restaurant</option>");
+    $('#interest').append("<option value='staduim'>Stadium</option>");
+    $('#interest').append("<option value='zoo'>The Zoo</option>");
+  }
   else {
     console.log('6+');
     $('#interest').append("<option value='amusement_park'>Amusement Park</option>");

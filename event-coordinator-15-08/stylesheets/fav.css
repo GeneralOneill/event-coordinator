@@ -1,8 +1,8 @@
-/*@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700);*/
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 
 body {
-  color: black;
+  color: white;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
   background-image: url('/images/chicago.jpg');
   background-size: cover;
   text-align: center;
@@ -13,8 +13,10 @@ body {
     background-color: #ffffff;
     opacity: 0.8;
     filter: alpha(opacity=80);
-    width: 950px;
-    height: 385px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    width: 400px;
+    height: 300px;
     border-radius: 4px;
     position: absolute;
     top:0;
@@ -22,22 +24,29 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+    overflow: scroll;
+    color: black;
 }
 
-#google_logo {
-  height: 11%;
-  width: 11%;
-}
-
-#info_para {
-  font-size: 110%;
-  margin-left: 10px;
-  margin-right: 10px;
+#about_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 150px;
 }
 
 #home_button {
   color: white;
   position: absolute;
-  left: 950px;
-  top: 500px;
+  top: 700px;
+  right: 200px;
+}
+
+#text {
+  color: white;
+}
+
+#text {
+  font-size: 500%;
+  text-align: center;
 }
