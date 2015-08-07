@@ -47,7 +47,7 @@ body {
   width: 20
   0px;
 }
-#info_box {
+.info_box {
     background-color: #ffffff;
     opacity: 0.8;
     filter: alpha(opacity=80);

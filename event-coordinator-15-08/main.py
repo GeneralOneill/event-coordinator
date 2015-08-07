@@ -88,14 +88,24 @@ class AboutHandler(webapp2.RequestHandler):
 
 class FavoriteHandler(webapp2.RequestHandler):
     def get(self):
+        user_id = users.get_current_user().user_id()
+        found_users = UserModel.query().filter(UserModel.currentUser == str(user_id)).fetch()
+        favorite_places = found_users[0].favorite_places
         template = jinja_environment.get_template('templates/favorites.html')
-        self.response.out.write(template.render())
+        template_vars = {
+            'favorites': favorite_places
+            }
+        self.response.out.write(template.render(template_vars))
     def post(self):
-        user = users.get_current_user()
+        user_id = users.get_current_user().user_id()
         favorite = self.request.get('selected_place')
-        user = UserModel(currentUser = user.user_id(), favorite_places = [favorite])
-        # favorites = UserModel.query(UserModel.favorite_places == favorite).fetch()
-        # if favorites:
+        found_users = UserModel.query().filter(UserModel.currentUser == str(user_id)).fetch()
+        if len(found_users) == 0:
+            user = UserModel(currentUser = user_id, favorite_places = [favorite])
+        else:
+            user = found_users[0]
+            if favorite not in user.favorite_places:
+                user.favorite_places.append(favorite)
         user.put()
         logging.info(self.request.get("selected_place"))
 

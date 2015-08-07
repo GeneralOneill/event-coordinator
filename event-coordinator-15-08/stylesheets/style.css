@@ -93,7 +93,7 @@ body {
 .drop_down  {
   margin: 0;
   padding: 7px 6px 0;
-  background: #000000 url(images/overlay.png) repeat-x 0 -110px;
+  background: #000000 repeat-x 0 -110px;
   line-height: 100%;
   border-radius: 1em;
   font: normal 0.5333333333333333em Arial, Helvetica, sans-serif;
@@ -103,9 +103,6 @@ body {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   width: auto;
-}
-
-.drop_down  {
   font-weight: bold;
   font-size: 13px;
   color: #FFFFFF;

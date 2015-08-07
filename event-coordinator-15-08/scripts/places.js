@@ -100,40 +100,43 @@ function post_favorites(){
   $.post("favorites", { selected_place: selected_place_id }, function(data) {
 
   })
+  $('#favorite_button').empty();
+  $('#favorite_button').append('Added To Favorites' + '<br />')
 }
 
 function add_info(object){
-  $('#info_box').append('<input type="button" value="Add To Favorites" name="add_favorite" onclick="post_favorites()"/><br />')
+  $('#favorite_button').append('<input type="button" value="Add To Favorites" name="add_favorite" onclick="post_favorites()"/><br />')
   if(place_dictionary[object].name){
-    $('#info_box').append('Name: ' + place_dictionary[object].name + "<br/>")
+    $('#place_details').append('Name: ' + place_dictionary[object].name + "<br/>")
   }
   if(place_dictionary[object].vicinity){
-    $('#info_box').append('Location: ' + place_dictionary[object].vicinity + "<br/>")
+    $('#place_details').append('Location: ' + place_dictionary[object].vicinity + "<br/>")
   }
   if(place_dictionary[object].rating){
-    $('#info_box').append('Rating: ' + place_dictionary[object].rating + "<br/>")
+    $('#place_details').append('Rating: ' + place_dictionary[object].rating + "<br/>")
   }
   if (place_dictionary[object].price_level) {
-    $('#info_box').append('Price Level: ' + place_dictionary[object].price_level + "<br/>")
+    $('#place_details').append('Price Level: ' + place_dictionary[object].price_level + "<br/>")
   }
   if (place_dictionary[object].formatted_phone_number) {
-    $('#info_box').append('Phone Number: ' + place_dictionary[object].formatted_phone_number + "<br/>")
+    $('#place_details').append('Phone Number: ' + place_dictionary[object].formatted_phone_number + "<br/>")
   }
   if (place_dictionary[object].opening_hours.open_now) {
-    $('#info_box').append('Open Now: Yes' + "<br/>")
+    $('#place_details').append('Open Now: Yes' + "<br/>")
   }
   else {
-    $('#info_box').append('Open Now: No' + "<br/>")
+    $('#place_details').append('Open Now: No' + "<br/>")
   }
   if (place_dictionary[object].website) {
-    $('#info_box').append('Website: ' + place_dictionary[object].website + "<br/>")
+    $('#place_details').append('Website: ' + place_dictionary[object].website + "<br/>")
   }
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function(){
   $('#container').click(function(e) {
-    $('#info_box').empty();
+    $('#place_details').empty();
+    $('#favorite_button').empty();
     ClearMarker();
     selected_place_id = place_dictionary[e.target.id].place_id;
     console.log("place Id" + selected_place_id);
