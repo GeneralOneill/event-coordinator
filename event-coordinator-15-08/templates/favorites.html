@@ -2,10 +2,28 @@
 <html>
   <head>
     <title>Event Coordinator</title>
+    <link href="stylesheets/selections.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="scripts/favorites.js"></script>
+    <div hidden="hidden" id="favorite_places">{{favorites}}</div>
   </head>
   <body>
-    {%for favorite in favorites%}
-    {{favorite}}
-    {%endfor%}
+    <div id="map-canvas"></div>
+    <div>
+      <a href="/about" id="about_button">About</a>
+      <a href="/" id="home_button">Home</a>
+      <h2 id="things_to_do">Favorites:</h2>
+      <div class="background, transbox" id="container">
+          <h2 class="results" id="favorite_places_box"></h2>
+      </div>
+      <div class="info_box">
+        <div id="favorite_button"></div>
+        <h2 id="place_details"></h2>
+      </div>
+    </div>
   </body>
 </html>

@@ -56,6 +56,9 @@ function initialize(){
 }
 
 function find_nearby(type,radius){
+  if(!radius){
+    radius = 500;
+  }
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   var request = {

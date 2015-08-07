@@ -16,6 +16,7 @@
 #
 import webapp2
 import jinja2
+import json
 import os
 import logging
 from google.appengine.ext import ndb
@@ -93,19 +94,19 @@ class FavoriteHandler(webapp2.RequestHandler):
         favorite_places = found_users[0].favorite_places
         template = jinja_environment.get_template('templates/favorites.html')
         template_vars = {
-            'favorites': favorite_places
+            'favorites': json.dumps(favorite_places)
             }
         self.response.out.write(template.render(template_vars))
     def post(self):
         user_id = users.get_current_user().user_id()
-        favorite = self.request.get('selected_place')
+        favorite_id = self.request.get('selected_place')
         found_users = UserModel.query().filter(UserModel.currentUser == str(user_id)).fetch()
         if len(found_users) == 0:
-            user = UserModel(currentUser = user_id, favorite_places = [favorite])
+            user = UserModel(currentUser = user_id, favorite_places = [favorite_id])
         else:
             user = found_users[0]
-            if favorite not in user.favorite_places:
-                user.favorite_places.append(favorite)
+            if favorite_id not in user.favorite_places:
+                user.favorite_places.append(favorite_id)
         user.put()
         logging.info(self.request.get("selected_place"))
 
