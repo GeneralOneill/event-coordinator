@@ -158,12 +158,15 @@ h1 {
 }
 
 #about_button {
-  color: black;
+  color: white;
   position: absolute;
-  width: 1420px;
-  height: 20px;
+  top: 700px;
+  right: 150px;
 }
 
-#fav_box {
-  
+#fav_button {
+  color: white;
+  position: absolute;
+  top: 700px;
+  right: 200px;
 }

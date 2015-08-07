@@ -5,6 +5,7 @@ var current_location;
 var lat = 45.8893683;
 var long = -87.6290385;
 var place_dictionary = {};
+var selected_place_id = null;
 var QueryString = function () {
   // This function is anonymous, is executed immediately and
   // the return value is assigned to QueryString!
@@ -93,9 +94,11 @@ function createMarker(place) {
     infowindow.setContent("<div> Name: " + place.name + "<br /> Location: " + place.vicinity + "</div>");
     infowindow.open(map, this);
   });
+}
 
-function add_info(object){
-  $('#info_box').append('<input type="button" value="Add To Favorites" name="add_favorite" /><br />')
+function post_favorites(){
+  $.post("favorites", { selected_place: selected_place_id }, function(data) {
+
   })
   $('#favorite_button').empty();
   $('#favorite_button').append('Added To Favorites' + '<br />')
@@ -103,7 +106,6 @@ function add_info(object){
 
 function add_info(object){
   $('#favorite_button').append('<input type="button" value="Add To Favorites" name="add_favorite" onclick="post_favorites()"/><br />')
-
   if(place_dictionary[object].name){
     $('#place_details').append('Name: ' + place_dictionary[object].name + "<br/>")
   }
@@ -128,7 +130,6 @@ function add_info(object){
   if (place_dictionary[object].website) {
     $('#place_details').append('Website: ' + place_dictionary[object].website + "<br/>")
   }
-
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -137,6 +138,8 @@ $(document).ready(function(){
     $('#place_details').empty();
     $('#favorite_button').empty();
     ClearMarker();
+    selected_place_id = place_dictionary[e.target.id].place_id;
+    console.log("place Id" + selected_place_id);
     createMarker(place_dictionary[e.target.id]);
     add_info(e.target.id);
   });

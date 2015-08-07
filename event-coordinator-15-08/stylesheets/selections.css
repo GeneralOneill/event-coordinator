@@ -8,6 +8,10 @@ body {
   font-family: Oswald;
 }
 
+#click_for_info {
+  text-align: center;
+}
+
 .results {
   color: black
   left: 10px;
@@ -39,7 +43,7 @@ body {
 
 #things_to_do {
   color: white;
-  text-indent: 70px;
+  text-indent: 90px;
 }
 
 #selection_button{
@@ -53,7 +57,7 @@ body {
     filter: alpha(opacity=80);
     position: absolute;
     left: 384px;
-    top: 55px;
+    top: 75px;
     height: 140px;
     width: 1040px;
     border-radius: 4px;
@@ -64,14 +68,20 @@ body {
 #about_button {
   color: white;
   float: right;
-  margin-top: 690px;
-  margin-right: 150px;
+  margin-top: 695px;
+  margin-right: 10px;
+}
+#fav_button {
+  color: white;
+  float: right;
+  margin-top: 695px;
+  margin-right: 110px;
 }
 
 #home_button {
   color: white;
   float: right;
-  margin-top: 690px;
+  margin-top: 695px;
   margin-right: 10px;
 }
 
