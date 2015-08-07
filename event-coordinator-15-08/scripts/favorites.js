@@ -1,6 +1,8 @@
 var map;
 var marker;
 var place_dictionary = {};
+var bounds = new google.maps.LatLngBounds();
+
 function initialize() {
   favorite_places_string = $('#favorite_places').text();
   console.log(favorite_places_string);
@@ -14,6 +16,7 @@ function initialize() {
 
   var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
+
 for(var i = 0; i < favorite_places.length; i ++){
   var index = 0;
   favorite_place = {"placeId":favorite_places[i]}
@@ -23,6 +26,8 @@ for(var i = 0; i < favorite_places.length; i ++){
         map: map,
         position: place.geometry.location,
       });
+      bounds.extend(marker.getPosition());
+      map.fitBounds(bounds);
       place_dictionary['place'+index]=place
       $('#favorite_places_box').append("<div class='place' id=" + "place" + index + ">" + place.name + "</div><br/>");
       index++;
@@ -34,6 +39,7 @@ for(var i = 0; i < favorite_places.length; i ++){
       });
     }
   });
+
 }
 }
 
@@ -53,8 +59,10 @@ function add_info(object){
   if (place_dictionary[object].formatted_phone_number) {
     $('#place_details').append('Phone Number: ' + place_dictionary[object].formatted_phone_number + "<br/>")
   }
-  if (place_dictionary[object].opening_hours.open_now) {
-    $('#place_details').append('Open Now: Yes' + "<br/>")
+  if (place_dictionary[object].opening_hours){
+    if (place_dictionary[object].opening_hours.open_now) {
+      $('#place_details').append('Open Now: Yes' + "<br/>")
+    }
   }
   else {
     $('#place_details').append('Open Now: No' + "<br/>")
