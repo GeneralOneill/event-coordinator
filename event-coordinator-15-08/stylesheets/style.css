@@ -114,8 +114,6 @@ body {
     background-color: #ffffff;
     opacity: 0.8;
     filter: alpha(opacity=80);
-    /*margin-left: auto;
-    margin-right: auto;*/
     width: 400px;
     height: 300px;
     border-radius: 4px;
@@ -144,34 +142,19 @@ h1 {
   color: white;
   font-size: 500%;
 }
-
-#ask {
-  margin-top: 15px;
-  margin-left: 530px;
-  float: left;
-}
-
-#jim {
-  margin-top: 15px;
-  margin-right: 530px;
-  float: right;
-}
-
 #about_button {
   color: white;
-  position: absolute;
-  top: 700px;
-  right: 150px;
+  margin-top: 10px;
+  margin-right: 15px;
 }
 
 #fav_button {
   color: white;
-  position: absolute;
-  top: 700px;
-  right: 200px;
+  margin-top: 10px;
+  margin-right: 15px;
 }
 
-#star {
+/*#star {
   width: 5%;
   height: 9%;
   position: absolute;
@@ -179,4 +162,4 @@ h1 {
   right: 0;
   top: 40px;
   margin: auto;
-}
+}*/

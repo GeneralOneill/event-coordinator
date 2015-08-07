@@ -35,9 +35,14 @@ body {
   margin-right: 10px;
 }
 
+#fav_button {
+  color: white;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
 #home_button {
   color: white;
-  position: absolute;
-  left: 950px;
-  top: 500px;
+  margin-top: 10px;
+  margin-right: 15px;
 }

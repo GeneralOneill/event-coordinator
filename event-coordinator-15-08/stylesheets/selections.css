@@ -67,22 +67,20 @@ body {
 
 #about_button {
   color: white;
-  float: right;
-  margin-top: 695px;
-  margin-right: 10px;
+  margin-top: 10px;
+  margin-right: 15px;
 }
+
 #fav_button {
   color: white;
-  float: right;
-  margin-top: 695px;
-  margin-right: 110px;
+  margin-top: 10px;
+  margin-right: 15px;
 }
 
 #home_button {
   color: white;
-  float: right;
-  margin-top: 695px;
-  margin-right: 10px;
+  margin-top: 10px;
+  margin-right: 15px;
 }
 
 #google {
